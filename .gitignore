@@ -1,0 +1,10 @@
+.idea/
+*.iml
+
+__pycache__/
+*.py[cod]
+*.log
+
+.venv
+env/
+venv/
