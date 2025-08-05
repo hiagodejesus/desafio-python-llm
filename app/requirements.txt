@@ -3,3 +3,8 @@ python-dotenv
 PyJWT
 requests
 pytest
+pydantic
+requests
+gunicorn
+gevent
+urllib3

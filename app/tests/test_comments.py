@@ -1,7 +1,7 @@
 import pytest
 import os
 
-from main import app
+from app.main import app
 
 USERNAME = os.getenv("JWT_USERNAME")
 PASSWORD = os.getenv("JWT_PASSWORD")

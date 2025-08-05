@@ -1,0 +1,42 @@
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    entrypoint: >
+      sh -c "
+        /bin/ollama serve & 
+        sleep 5 && apt-get update && apt-get install -y curl &&
+        echo 'Aguardando Ollama iniciar...' &&
+        until curl http://ollama:11434/api/tags; do sleep 5; done &&
+        echo 'Ollama iniciado, carregando modelo...' &&
+        ollama pull ${MODEL_NAME} &&
+        echo 'Modelo carregado com sucesso!' &&
+        wait
+      "
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - ollama
+    command: >
+      sh -c "
+        apt-get update && apt-get install -y curl &&
+        echo 'Aguardando Ollama responder...' &&
+        until curl -s http://ollama:11434/api/tags > /dev/null; do sleep 5; done &&
+        echo 'Iniciando Flask app...' &&
+        gunicorn main:app -b 0.0.0.0:5000 -k gevent --timeout 300
+      "
+
+volumes:
+  ollama_data:

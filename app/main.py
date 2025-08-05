@@ -96,5 +96,9 @@ def login():
     return jsonify({'token': token})
 
 
-if __name__ == '__main__':
-    app.run(debug=False)
+OLLAMA_URL = os.getenv("OLLAMA_URL")
+MODEL_NAME = os.getenv("MODEL_NAME")
+
+@app.route("/")
+def index():
+    return f"Ollama URL: {OLLAMA_URL}, model: {MODEL_NAME}"
