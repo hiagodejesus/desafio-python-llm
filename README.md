@@ -171,6 +171,19 @@ curl -X POST http://localhost:5000/api/comentarios \
 
 3. **Token expira em 30 minutos** - será necessário fazer login novamente.
 
+##  📊 Acesso à Página de Relatórios Semanais
+
+Este projeto disponibiliza uma página de relatórios acessível via navegador.
+
+### Como acessar
+
+1. Certifique-se que o servidor está rodando localmente na porta 5000.
+
+2. Abra seu navegador preferido (Chrome, Firefox, Edge, etc).
+
+3. Digite na barra de endereços o seguinte URL: http://localhost:5000/relatorio/semana
+
+
 ## 🐳 Comandos Docker úteis
 
 ### Gerenciar containers

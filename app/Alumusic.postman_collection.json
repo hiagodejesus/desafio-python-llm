@@ -11,46 +11,11 @@
 			"name": "comentarios",
 			"request": {
 				"auth": {
-					"type": "jwt",
-					"jwt": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "payload",
-							"value": "{\r\n        \"user\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }",
-							"type": "string"
-						},
-						{
-							"key": "secret",
-							"value": "chave-super-secreta",
-							"type": "string"
-						},
-						{
-							"key": "algorithm",
-							"value": "HS256",
-							"type": "string"
-						},
-						{
-							"key": "isSecretBase64Encoded",
-							"value": false,
-							"type": "boolean"
-						},
-						{
-							"key": "addTokenTo",
-							"value": "header",
-							"type": "string"
-						},
-						{
-							"key": "headerPrefix",
-							"value": "Bearer",
-							"type": "string"
-						},
-						{
-							"key": "queryParamKey",
-							"value": "token",
-							"type": "string"
-						},
-						{
-							"key": "header",
-							"value": "{}",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE3NTQ0ODM5OTh9.x917JvU6VrbGpZ1SLP1y6f3SDAkvJaQLDshnuZfyciQ",
 							"type": "string"
 						}
 					]
@@ -72,14 +37,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/comentarios",
+					"raw": "http://localhost:5000/comentarios",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"api",
 						"comentarios"
 					]
 				}
@@ -89,8 +53,51 @@
 		{
 			"name": "comentarios",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE3NTQ0ODM5OTh9.x917JvU6VrbGpZ1SLP1y6f3SDAkvJaQLDshnuZfyciQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		}
