@@ -8,3 +8,7 @@ requests
 gunicorn
 gevent
 urllib3
+SQLAlchemy
+psycopg2-binary
+cachetools
+uuid

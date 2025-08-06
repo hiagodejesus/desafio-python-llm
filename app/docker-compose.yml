@@ -1,4 +1,16 @@
 services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: alumusic
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   ollama:
     image: ollama/ollama
     ports:
@@ -29,14 +41,15 @@ services:
       - .:/app
     depends_on:
       - ollama
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://admin:admin@postgres:5432/alumusic
     command: >
       sh -c "
-        apt-get update && apt-get install -y curl &&
-        echo 'Aguardando Ollama responder...' &&
-        until curl -s http://ollama:11434/api/tags > /dev/null; do sleep 5; done &&
         echo 'Iniciando Flask app...' &&
         gunicorn main:app -b 0.0.0.0:5000 -k gevent --timeout 300
       "
 
 volumes:
+  postgres_data:
   ollama_data:

@@ -3,6 +3,10 @@ import requests
 from dotenv import load_dotenv
 import pytest
 
+from core.logger import get_logger
+
+logger = get_logger(__name__, level="INFO")
+
 load_dotenv()
 
 OLLAMA_URL = os.getenv("OLLAMA_URL")
@@ -19,7 +23,7 @@ def test_generate(prompt: str):
             "stream": False
         }
     )
-    print("Status code:", response.status_code)
-    print("Response:", response.text)
+    logger.info("Status code:", response.status_code)
+    logger.info("Response:", response.text)
 
     assert response.status_code == 200, "response.status_code must be 200"

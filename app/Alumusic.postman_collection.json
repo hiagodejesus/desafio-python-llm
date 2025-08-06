@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "5036ee99-6513-425e-bf13-81743a5f0d8e",
+		"name": "Alumusic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41487641",
+		"_collection_link": "https://alura1-8234.postman.co/workspace/alumusic~6a9df9bc-000f-4201-af67-d72a46e4d533/collection/41487641-5036ee99-6513-425e-bf13-81743a5f0d8e?action=share&source=collection_link&creator=41487641"
+	},
+	"item": [
+		{
+			"name": "comentarios",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "payload",
+							"value": "{\r\n        \"user\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }",
+							"type": "string"
+						},
+						{
+							"key": "secret",
+							"value": "chave-super-secreta",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"id\": 1, \"texto\": \"Adorei a nova interface! Muito mais intuitiva\"},\r\n    {\"id\": 2, \"texto\": \"O player trava quando tento mudar de faixa rapidamente.\"},\r\n    {\"id\": 3, \"texto\": \"Seria ótimo se tivesse um modo offline para playlists.\"},\r\n    {\"id\": 4, \"texto\": \"A qualidade do som está incrível depois da última atualização.\"}\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comentarios",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
