@@ -12,3 +12,6 @@ SQLAlchemy
 psycopg2-binary
 cachetools
 uuid
+python-multipart
+pandas
+plotly

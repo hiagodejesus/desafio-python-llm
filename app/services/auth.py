@@ -19,6 +19,6 @@ def jwt_login(auth):
     token = jwt.encode({
         'user': auth['username'],
         'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=30)
-    }, os.getenv['JWT_SECRET_KEY'], algorithm="HS256")
+    }, os.getenv('JWT_SECRET_KEY'), algorithm="HS256")
 
     return jsonify({'access_token': token})
